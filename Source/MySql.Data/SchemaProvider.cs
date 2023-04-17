@@ -355,10 +355,12 @@ namespace MySql.Data.MySqlClient
             row["INDEX_CATALOG"] = null;
             row["INDEX_SCHEMA"] = table["TABLE_SCHEMA"];
             row["INDEX_NAME"] = key_name;
-            row["TABLE_NAME"] = GetString(reader, reader.GetOrdinal("TABLE"));
+            // https://github.com/mysql/mysql-connector-net/commit/16ad749586b0e5eb1aad127e3744096692e4a6ae
+            row["TABLE_NAME"] = table["TABLE_NAME"]; //GetString(reader, reader.GetOrdinal("TABLE"));
             row["COLUMN_NAME"] = col_name;
             row["ORDINAL_POSITION"] = reader.GetValue(reader.GetOrdinal("SEQ_IN_INDEX"));
-            row["SORT_ORDER"] = reader.GetString("COLLATION");
+            // https://github.com/mysql/mysql-connector-net/commit/16ad749586b0e5eb1aad127e3744096692e4a6ae
+            row["SORT_ORDER"] = reader.GetValue(reader.GetOrdinal("COLLATION")); //reader.GetString("COLLATION");
           }
         }
       }

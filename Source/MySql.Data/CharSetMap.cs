@@ -144,6 +144,7 @@ namespace MySql.Data.MySqlClient
       mapping.Add("latvian1", new CharacterSet("iso-8859-13", 1));
       mapping.Add("estonia", new CharacterSet("iso-8859-13", 1));
       mapping.Add("dos", new CharacterSet("ibm437", 1));
+      mapping.Add("utf8mb3", new CharacterSet("utf-8", 3));
       mapping.Add("utf8mb4", new CharacterSet("utf-8", 4));
       mapping.Add("utf16", new CharacterSet("utf-16BE", 2));
       mapping.Add("utf16le", new CharacterSet("utf-16", 2));
